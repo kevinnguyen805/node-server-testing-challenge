@@ -10,7 +10,6 @@ function insert(newCat){
      return null 
 }
 
-
 function remove(cat){
      return null 
 }
