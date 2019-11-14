@@ -12,6 +12,7 @@ function insert(newCat){
      .then(([id]) => {
           return db('cats')
           .where('id', '=', id)
+          .first()                 //TODO - YOU WANT FIRST() SO YOU GRAB THE OBJECT NOT THE ARRAY + OBJECT (will create errors)
      })
 }
 
