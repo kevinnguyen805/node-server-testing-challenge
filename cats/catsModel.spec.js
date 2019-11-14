@@ -1,6 +1,21 @@
-const request = require('supertest')
-const server = require('../api/server.js')
+const db = require('../data/dbConfig.js')
+const Cats = require('./catsModel.js')
 
-it('should set db environment to testing', function() {
-     expect(process.env.DB_ENV).toBe("testing")
+
+
+describe('cats model', function(){
+     describe('insert()', function(){
+          beforeEach(async () => {
+               await db('cats').truncate()
+          })
+          
+          it('should insert a new cat', async function(){
+          await Cats.insert({ name: "gabe", color: "brown"})
+          
+          const cats = await db('cats')
+          expect(cats).toHaveLength(1);
+     })
+     });
+
+
 })

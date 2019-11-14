@@ -7,7 +7,12 @@ module.exports = {
 }
 
 function insert(newCat){
-     return null 
+     return db('cats')
+     .insert(newCat, "id")
+     .then(([id]) => {
+          return db('cats')
+          .where('id', '=', id)
+     })
 }
 
 function remove(cat){
