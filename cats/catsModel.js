@@ -16,8 +16,10 @@ function insert(newCat){
      })
 }
 
-function remove(cat){
-     return null 
+function remove(catId){
+     return db('cats')
+     .where("id", "=", catId)
+     .delete()
 }
 
 function getAll(){
